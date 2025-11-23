@@ -35,8 +35,8 @@ export function PrescriptionList() {
     ];
 
     return (
-        <div className="bg-white p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100">
-            <h3 className="text-lg font-bold text-slate-900 mb-4 md:mb-6 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-4 md:mb-6 flex items-center gap-2">
                 <Pill className="w-5 h-5 text-blue-500" />
                 Prescriptions & Medications
             </h3>
@@ -46,35 +46,35 @@ export function PrescriptionList() {
                     <div
                         key={rx.id}
                         className={`border rounded-xl p-3 md:p-4 transition-colors ${rx.active
-                                ? 'border-blue-200 bg-blue-50/30'
-                                : 'border-slate-200 bg-slate-50 opacity-60'
+                            ? 'border-blue-200 bg-blue-50/30 dark:bg-blue-500/10 dark:border-blue-500/30'
+                            : 'border-slate-200 bg-slate-50 dark:bg-slate-700/30 dark:border-slate-600 opacity-60'
                             }`}
                     >
                         <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 mb-3">
                             <div className="flex-1">
                                 <div className="flex items-center gap-2 mb-1">
-                                    <h4 className="font-bold text-slate-900 text-sm md:text-base">{rx.medication}</h4>
-                                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${rx.active ? 'bg-green-100 text-green-700' : 'bg-slate-200 text-slate-600'
+                                    <h4 className="font-bold text-slate-900 dark:text-white text-sm md:text-base">{rx.medication}</h4>
+                                    <span className={`text-xs font-medium px-2 py-0.5 rounded-full ${rx.active ? 'bg-green-100 text-green-700 dark:bg-green-500/20 dark:text-green-400' : 'bg-slate-200 text-slate-600 dark:bg-slate-600 dark:text-slate-300'
                                         }`}>
                                         {rx.active ? 'Active' : 'Completed'}
                                     </span>
                                 </div>
-                                <p className="text-xs md:text-sm text-slate-600">{rx.dosage} - {rx.frequency}</p>
+                                <p className="text-xs md:text-sm text-slate-600 dark:text-slate-400">{rx.dosage} - {rx.frequency}</p>
                             </div>
                         </div>
 
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-slate-600 dark:text-slate-400">
                             <div className="flex items-center gap-2">
-                                <Calendar className="w-3 h-3 text-slate-400" />
+                                <Calendar className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                                 <span>Started: {rx.startDate}</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <Clock className="w-3 h-3 text-slate-400" />
+                                <Clock className="w-3 h-3 text-slate-400 dark:text-slate-500" />
                                 <span>Refill: {rx.refillDate}</span>
                             </div>
                         </div>
 
-                        <p className="text-xs text-slate-500 mt-2">Prescribed by {rx.prescribedBy}</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">Prescribed by {rx.prescribedBy}</p>
                     </div>
                 ))}
             </div>

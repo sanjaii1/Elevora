@@ -1,9 +1,5 @@
 @import "tailwindcss";
 
-@theme {
-    --animate-spin-slow: spin 3s linear infinite;
-}
-
 /* Custom Utilities */
 .scrollbar-hide {
     -ms-overflow-style: none;
@@ -14,4 +10,20 @@
 
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
+}
+
+@layer base {
+    body {
+        @apply bg-slate-50 text-slate-900 transition-colors duration-300;
+    }
+
+    .dark body {
+        @apply bg-slate-950 text-slate-100;
+    }
+}
+
+@layer utilities {
+    .animate-spin-slow {
+        animation: spin 3s linear infinite;
+    }
 }

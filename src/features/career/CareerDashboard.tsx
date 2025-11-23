@@ -8,8 +8,8 @@ export function CareerDashboard() {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-slate-900">Career & Projects</h1>
-                    <p className="text-slate-500">Manage your professional life and ongoing work.</p>
+                    <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Career & Projects</h1>
+                    <p className="text-slate-500 dark:text-slate-400">Manage your professional life and ongoing work.</p>
                 </div>
                 <button className="px-4 py-2 bg-purple-600 text-white rounded-xl hover:bg-purple-700 transition-colors flex items-center gap-2">
                     <Plus className="w-4 h-4" />

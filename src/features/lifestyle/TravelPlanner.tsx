@@ -27,8 +27,8 @@ export function TravelPlanner() {
     };
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full">
-            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 h-full transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                 <Plane className="w-5 h-5 text-cyan-500" />
                 Upcoming Trips
             </h3>
@@ -38,7 +38,7 @@ export function TravelPlanner() {
                     <motion.div
                         key={trip.id}
                         layoutId={trip.id}
-                        className="border border-slate-200 rounded-xl overflow-hidden"
+                        className="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden transition-colors"
                     >
                         <div className={`h-32 ${trip.image} relative p-6 flex flex-col justify-end`}>
                             <div className="absolute inset-0 bg-black/20" />
@@ -54,23 +54,23 @@ export function TravelPlanner() {
                             </div>
                         </div>
 
-                        <div className="p-4 bg-slate-50">
-                            <h5 className="text-sm font-bold text-slate-900 mb-3">Itinerary Preview</h5>
+                        <div className="p-4 bg-slate-50 dark:bg-slate-700/30 transition-colors">
+                            <h5 className="text-sm font-bold text-slate-900 dark:text-white mb-3">Itinerary Preview</h5>
                             <div className="space-y-3">
                                 {trip.itinerary.map((item, i) => {
                                     const Icon = getIcon(item.type);
                                     return (
                                         <div key={i} className="flex items-center gap-3 text-sm">
-                                            <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center text-slate-400 border border-slate-200">
+                                            <div className="w-6 h-6 rounded-full bg-white dark:bg-slate-600 flex items-center justify-center text-slate-400 dark:text-slate-200 border border-slate-200 dark:border-slate-500">
                                                 <span className="text-[10px] font-bold">{item.day}</span>
                                             </div>
-                                            <Icon className="w-4 h-4 text-slate-400" />
-                                            <span className="text-slate-600">{item.activity}</span>
+                                            <Icon className="w-4 h-4 text-slate-400 dark:text-slate-400" />
+                                            <span className="text-slate-600 dark:text-slate-300">{item.activity}</span>
                                         </div>
                                     );
                                 })}
                             </div>
-                            <button className="w-full mt-4 py-2 bg-white border border-slate-200 rounded-lg text-sm font-medium text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors">
+                            <button className="w-full mt-4 py-2 bg-white dark:bg-slate-600 border border-slate-200 dark:border-slate-500 rounded-lg text-sm font-medium text-slate-600 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors">
                                 View Full Itinerary
                             </button>
                         </div>

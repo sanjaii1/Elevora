@@ -8,8 +8,8 @@ export function DevelopmentDashboard() {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-slate-900">Personal Growth</h1>
-                    <p className="text-slate-500">Set goals, track productivity, and reflect on your journey.</p>
+                    <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Personal Growth</h1>
+                    <p className="text-slate-500 dark:text-slate-400">Set goals, track productivity, and reflect on your journey.</p>
                 </div>
                 <button className="px-4 py-2 bg-yellow-500 text-white rounded-xl hover:bg-yellow-600 transition-colors flex items-center gap-2">
                     <Plus className="w-4 h-4" />

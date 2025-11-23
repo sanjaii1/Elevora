@@ -8,8 +8,8 @@ export function SystemsDashboard() {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-slate-900">System Control</h1>
-                    <p className="text-slate-500">Manage your devices, assets, and secure documents.</p>
+                    <h1 className="text-2xl font-bold text-slate-900 dark:text-white">System Control</h1>
+                    <p className="text-slate-500 dark:text-slate-400">Manage your devices, assets, and secure documents.</p>
                 </div>
                 <button className="px-4 py-2 bg-slate-800 text-white rounded-xl hover:bg-slate-900 transition-colors flex items-center gap-2">
                     <Plus className="w-4 h-4" />

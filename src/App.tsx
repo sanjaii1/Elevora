@@ -14,28 +14,31 @@ import { MainDashboard } from "./features/dashboard/MainDashboard";
 import { TodoDashboard } from "./features/todo/TodoDashboard";
 import { HealthDashboard } from "./features/health/HealthDashboard";
 import { TimeManagementDashboard } from "./features/time/TimeManagementDashboard";
+import { ThemeProvider } from "./components/providers/ThemeProvider";
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route element={<Layout />}>
-          <Route path="/" element={<MainDashboard />} />
-          <Route path="/todo" element={<TodoDashboard />} />
-          <Route path="/time" element={<TimeManagementDashboard />} />
-          <Route path="/personal" element={<PersonalDashboard />} />
-          <Route path="/health" element={<HealthDashboard />} />
-          <Route path="/career" element={<CareerDashboard />} />
-          <Route path="/finance" element={<FinanceDashboard />} />
-          <Route path="/learning" element={<LearningDashboard />} />
-          <Route path="/development" element={<DevelopmentDashboard />} />
-          <Route path="/lifestyle" element={<LifestyleDashboard />} />
-          <Route path="/systems" element={<SystemsDashboard />} />
-          <Route path="/social" element={<SocialDashboard />} />
-          <Route path="/business" element={<BusinessDashboard />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Route>
-      </Routes>
+      <ThemeProvider defaultTheme="dark" storageKey="elevora-theme">
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<MainDashboard />} />
+            <Route path="/todo" element={<TodoDashboard />} />
+            <Route path="/time" element={<TimeManagementDashboard />} />
+            <Route path="/personal" element={<PersonalDashboard />} />
+            <Route path="/health" element={<HealthDashboard />} />
+            <Route path="/career" element={<CareerDashboard />} />
+            <Route path="/finance" element={<FinanceDashboard />} />
+            <Route path="/learning" element={<LearningDashboard />} />
+            <Route path="/development" element={<DevelopmentDashboard />} />
+            <Route path="/lifestyle" element={<LifestyleDashboard />} />
+            <Route path="/systems" element={<SystemsDashboard />} />
+            <Route path="/social" element={<SocialDashboard />} />
+            <Route path="/business" element={<BusinessDashboard />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Route>
+        </Routes>
+      </ThemeProvider>
     </BrowserRouter>
   );
 }

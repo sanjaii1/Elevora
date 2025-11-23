@@ -8,8 +8,8 @@ export function FinanceDashboard() {
         <div className="space-y-6">
             <div className="flex items-center justify-between">
                 <div>
-                    <h1 className="text-2xl font-bold text-slate-900">Financial Overview</h1>
-                    <p className="text-slate-500">Track your income, expenses, and savings goals.</p>
+                    <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Financial Overview</h1>
+                    <p className="text-slate-500 dark:text-slate-400">Track your income, expenses, and savings goals.</p>
                 </div>
                 <button className="px-4 py-2 bg-green-600 text-white rounded-xl hover:bg-green-700 transition-colors flex items-center gap-2">
                     <Plus className="w-4 h-4" />

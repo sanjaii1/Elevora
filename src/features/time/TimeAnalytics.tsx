@@ -11,8 +11,8 @@ export function TimeAnalytics() {
     ];
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                 <BarChart2 className="w-5 h-5 text-indigo-500" />
                 Time Distribution
             </h3>
@@ -34,15 +34,16 @@ export function TimeAnalytics() {
                             ))}
                         </Pie>
                         <Tooltip
-                            contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
+                            contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', backgroundColor: '#1e293b', color: '#f8fafc' }}
+                            itemStyle={{ color: '#f8fafc' }}
                         />
                     </PieChart>
                 </ResponsiveContainer>
 
                 {/* Center Text */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-                    <span className="text-3xl font-bold text-slate-900">6.5h</span>
-                    <span className="text-xs text-slate-500 uppercase tracking-wider">Tracked</span>
+                    <span className="text-3xl font-bold text-slate-900 dark:text-white">6.5h</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">Tracked</span>
                 </div>
             </div>
 
@@ -50,8 +51,8 @@ export function TimeAnalytics() {
                 {data.map((item) => (
                     <div key={item.name} className="flex items-center gap-2">
                         <div className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
-                        <span className="text-sm text-slate-600">{item.name}</span>
-                        <span className="text-xs text-slate-400 ml-auto">{item.value}%</span>
+                        <span className="text-sm text-slate-600 dark:text-slate-300">{item.name}</span>
+                        <span className="text-xs text-slate-400 dark:text-slate-500 ml-auto">{item.value}%</span>
                     </div>
                 ))}
             </div>

@@ -30,9 +30,13 @@ export function MainDashboard() {
 
     return (
         <div className="space-y-6 md:space-y-8">
-            <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-slate-900">Welcome back, User</h1>
-                <p className="text-sm md:text-base text-slate-500 mt-1 md:mt-2">Here's what's happening in your life today.</p>
+            <div className="mb-8">
+                <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white transition-colors">
+                    Welcome back, User! 👋
+                </h1>
+                <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 mt-1 transition-colors">
+                    Here's what's happening in your life today.
+                </p>
             </div>
 
             <motion.div

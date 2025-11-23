@@ -13,10 +13,10 @@ const data = [
 
 export function ExpenseChart() {
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-[400px]">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 h-[400px] transition-colors">
             <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold text-slate-900">Income vs Expense</h3>
-                <div className="flex items-center gap-2 text-sm text-green-600 bg-green-50 px-3 py-1 rounded-full">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Income vs Expense</h3>
+                <div className="flex items-center gap-2 text-sm text-green-600 dark:text-green-400 bg-green-50 dark:bg-green-500/20 px-3 py-1 rounded-full">
                     <TrendingUp className="w-4 h-4" />
                     <span>+12.5% vs last month</span>
                 </div>
@@ -37,12 +37,12 @@ export function ExpenseChart() {
                             <stop offset="95%" stopColor="#ef4444" stopOpacity={0} />
                         </linearGradient>
                     </defs>
-                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                    <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" className="dark:stroke-slate-700" />
                     <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: '#64748b', fontSize: 12 }} />
                     <YAxis axisLine={false} tickLine={false} tick={{ fill: '#64748b', fontSize: 12 }} />
                     <Tooltip
-                        contentStyle={{ backgroundColor: '#fff', borderRadius: '12px', border: '1px solid #e2e8f0', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                        itemStyle={{ fontSize: '12px', fontWeight: 500 }}
+                        contentStyle={{ backgroundColor: '#1e293b', borderRadius: '12px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)', color: '#f8fafc' }}
+                        itemStyle={{ fontSize: '12px', fontWeight: 500, color: '#f8fafc' }}
                     />
                     <Area type="monotone" dataKey="income" stroke="#22c55e" strokeWidth={2} fillOpacity={1} fill="url(#colorIncome)" />
                     <Area type="monotone" dataKey="expense" stroke="#ef4444" strokeWidth={2} fillOpacity={1} fill="url(#colorExpense)" />

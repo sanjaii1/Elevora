@@ -19,9 +19,9 @@ export function DeviceManager() {
     };
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full">
-            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
-                <Smartphone className="w-5 h-5 text-slate-500" />
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 h-full transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
+                <Smartphone className="w-5 h-5 text-slate-500 dark:text-slate-400" />
                 Device Inventory
             </h3>
 
@@ -29,23 +29,23 @@ export function DeviceManager() {
                 {devices.map((device, i) => {
                     const Icon = getIcon(device.type);
                     return (
-                        <div key={i} className="flex items-center justify-between p-4 bg-slate-50 rounded-xl border border-slate-100">
+                        <div key={i} className="flex items-center justify-between p-4 bg-slate-50 dark:bg-slate-700/30 rounded-xl border border-slate-100 dark:border-slate-600 transition-colors">
                             <div className="flex items-center gap-4">
-                                <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center text-slate-500 shadow-sm">
+                                <div className="w-10 h-10 bg-white dark:bg-slate-600 rounded-lg flex items-center justify-center text-slate-500 dark:text-slate-300 shadow-sm">
                                     <Icon className="w-5 h-5" />
                                 </div>
                                 <div>
-                                    <p className="font-bold text-slate-900">{device.name}</p>
-                                    <p className="text-xs text-slate-500">Synced: {device.lastSync}</p>
+                                    <p className="font-bold text-slate-900 dark:text-white">{device.name}</p>
+                                    <p className="text-xs text-slate-500 dark:text-slate-400">Synced: {device.lastSync}</p>
                                 </div>
                             </div>
 
                             <div className="flex items-center gap-4">
-                                <div className="flex items-center gap-1 text-xs font-medium text-slate-600">
+                                <div className="flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-slate-300">
                                     <Battery className={`w-4 h-4 ${device.battery < 20 ? 'text-red-500' : 'text-green-500'}`} />
                                     {device.battery}%
                                 </div>
-                                <div className={`w-2 h-2 rounded-full ${device.status === 'online' ? 'bg-green-500' : 'bg-slate-300'}`} />
+                                <div className={`w-2 h-2 rounded-full ${device.status === 'online' ? 'bg-green-500' : 'bg-slate-300 dark:bg-slate-500'}`} />
                             </div>
                         </div>
                     );

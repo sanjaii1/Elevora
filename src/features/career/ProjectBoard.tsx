@@ -50,11 +50,11 @@ export function ProjectBoard() {
     ]);
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full overflow-x-auto">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 h-full overflow-x-auto transition-colors">
             <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold text-slate-900">Project Board</h3>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white">Project Board</h3>
                 <div className="flex gap-2">
-                    <button className="p-2 hover:bg-slate-100 rounded-lg text-slate-500">
+                    <button className="p-2 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg text-slate-500 dark:text-slate-400">
                         <MoreHorizontal className="w-5 h-5" />
                     </button>
                 </div>
@@ -66,12 +66,12 @@ export function ProjectBoard() {
                         <div className="flex items-center justify-between mb-4">
                             <div className="flex items-center gap-2">
                                 <div className={cn("w-2 h-2 rounded-full", column.color)} />
-                                <span className="font-medium text-slate-700">{column.title}</span>
-                                <span className="text-xs text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
+                                <span className="font-medium text-slate-700 dark:text-slate-300">{column.title}</span>
+                                <span className="text-xs text-slate-400 dark:text-slate-500 bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded-full">
                                     {column.tasks.length}
                                 </span>
                             </div>
-                            <button className="text-slate-400 hover:text-slate-600">
+                            <button className="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300">
                                 <Plus className="w-4 h-4" />
                             </button>
                         </div>
@@ -81,20 +81,20 @@ export function ProjectBoard() {
                                 <motion.div
                                     key={task.id}
                                     layoutId={task.id}
-                                    className="bg-white p-4 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing"
+                                    className="bg-white dark:bg-slate-700/50 p-4 rounded-xl border border-slate-200 dark:border-slate-600 shadow-sm hover:shadow-md transition-shadow cursor-grab active:cursor-grabbing"
                                 >
                                     <div className="flex justify-between items-start mb-2">
-                                        <span className="text-xs font-medium px-2 py-1 bg-slate-100 text-slate-600 rounded-md">
+                                        <span className="text-xs font-medium px-2 py-1 bg-slate-100 dark:bg-slate-600 text-slate-600 dark:text-slate-300 rounded-md">
                                             {task.tag}
                                         </span>
-                                        <button className="text-slate-300 hover:text-slate-500">
+                                        <button className="text-slate-300 dark:text-slate-500 hover:text-slate-500 dark:hover:text-slate-300">
                                             <MoreHorizontal className="w-4 h-4" />
                                         </button>
                                     </div>
 
-                                    <h4 className="font-medium text-slate-900 mb-3">{task.title}</h4>
+                                    <h4 className="font-medium text-slate-900 dark:text-white mb-3">{task.title}</h4>
 
-                                    <div className="flex items-center justify-between text-xs text-slate-500">
+                                    <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
                                         <div className="flex items-center gap-3">
                                             <div className="flex items-center gap-1">
                                                 <Paperclip className="w-3 h-3" />
@@ -107,7 +107,7 @@ export function ProjectBoard() {
                                         </div>
                                         <div className="flex -space-x-2">
                                             {[...Array(task.members)].map((_, i) => (
-                                                <div key={i} className="w-6 h-6 rounded-full bg-slate-200 border-2 border-white flex items-center justify-center text-[10px] font-bold text-slate-500">
+                                                <div key={i} className="w-6 h-6 rounded-full bg-slate-200 dark:bg-slate-600 border-2 border-white dark:border-slate-700 flex items-center justify-center text-[10px] font-bold text-slate-500 dark:text-slate-300">
                                                     U
                                                 </div>
                                             ))}
@@ -116,7 +116,7 @@ export function ProjectBoard() {
                                 </motion.div>
                             ))}
 
-                            <button className="w-full py-2 border border-dashed border-slate-300 rounded-xl text-sm text-slate-500 hover:bg-slate-50 hover:border-slate-400 transition-colors flex items-center justify-center gap-2">
+                            <button className="w-full py-2 border border-dashed border-slate-300 dark:border-slate-600 rounded-xl text-sm text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700/50 hover:border-slate-400 dark:hover:border-slate-500 transition-colors flex items-center justify-center gap-2">
                                 <Plus className="w-4 h-4" />
                                 Add Task
                             </button>

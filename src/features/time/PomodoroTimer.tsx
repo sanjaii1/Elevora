@@ -37,8 +37,8 @@ export function PomodoroTimer() {
         : ((5 * 60 - timeLeft) / (5 * 60)) * 100;
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                 <Brain className="w-5 h-5 text-indigo-500" />
                 Focus Timer
             </h3>
@@ -47,8 +47,8 @@ export function PomodoroTimer() {
                 <button
                     onClick={() => setTimerMode('focus')}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${mode === 'focus'
-                            ? 'bg-indigo-100 text-indigo-700'
-                            : 'text-slate-500 hover:bg-slate-50'
+                        ? 'bg-indigo-100 dark:bg-indigo-500/20 text-indigo-700 dark:text-indigo-300'
+                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
                         }`}
                 >
                     Focus
@@ -56,8 +56,8 @@ export function PomodoroTimer() {
                 <button
                     onClick={() => setTimerMode('break')}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${mode === 'break'
-                            ? 'bg-green-100 text-green-700'
-                            : 'text-slate-500 hover:bg-slate-50'
+                        ? 'bg-green-100 dark:bg-green-500/20 text-green-700 dark:text-green-300'
+                        : 'text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700'
                         }`}
                 >
                     Break
@@ -74,7 +74,7 @@ export function PomodoroTimer() {
                         stroke="currentColor"
                         strokeWidth="12"
                         fill="transparent"
-                        className="text-slate-100"
+                        className="text-slate-100 dark:text-slate-700"
                     />
                     <circle
                         cx="96"
@@ -91,10 +91,10 @@ export function PomodoroTimer() {
                 </svg>
 
                 <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-4xl font-bold text-slate-900 font-mono">
+                    <span className="text-4xl font-bold text-slate-900 dark:text-white font-mono">
                         {formatTime(timeLeft)}
                     </span>
-                    <span className="text-sm text-slate-500 mt-1 capitalize">
+                    <span className="text-sm text-slate-500 dark:text-slate-400 mt-1 capitalize">
                         {isActive ? 'Running' : 'Paused'}
                     </span>
                 </div>
@@ -104,15 +104,15 @@ export function PomodoroTimer() {
                 <button
                     onClick={toggleTimer}
                     className={`w-14 h-14 rounded-full flex items-center justify-center transition-all ${isActive
-                            ? 'bg-amber-100 text-amber-600 hover:bg-amber-200'
-                            : 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-200'
+                        ? 'bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 hover:bg-amber-200 dark:hover:bg-amber-500/30'
+                        : 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-200 dark:shadow-none'
                         }`}
                 >
                     {isActive ? <Pause className="w-6 h-6" /> : <Play className="w-6 h-6 ml-1" />}
                 </button>
                 <button
                     onClick={() => setTimerMode(mode)}
-                    className="w-14 h-14 rounded-full bg-slate-100 text-slate-600 flex items-center justify-center hover:bg-slate-200 transition-colors"
+                    className="w-14 h-14 rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 flex items-center justify-center hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
                 >
                     <RotateCcw className="w-6 h-6" />
                 </button>

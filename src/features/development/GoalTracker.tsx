@@ -31,8 +31,8 @@ export function GoalTracker() {
     ];
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full">
-            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 h-full transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                 <Target className="w-5 h-5 text-yellow-500" />
                 Active Goals
             </h3>
@@ -42,27 +42,27 @@ export function GoalTracker() {
                     <motion.div
                         key={goal.id}
                         layoutId={goal.id}
-                        className="border border-slate-200 rounded-xl p-4 hover:border-yellow-200 transition-colors"
+                        className="border border-slate-200 dark:border-slate-700 rounded-xl p-4 hover:border-yellow-200 dark:hover:border-yellow-500/30 transition-colors"
                     >
                         <div className="flex items-center justify-between mb-2">
                             <div className="flex items-center gap-2">
                                 <span className={cn(
                                     "text-xs font-medium px-2 py-1 rounded-md",
-                                    goal.type === "Short-term" ? "bg-blue-50 text-blue-600" : "bg-purple-50 text-purple-600"
+                                    goal.type === "Short-term" ? "bg-blue-50 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400" : "bg-purple-50 dark:bg-purple-500/20 text-purple-600 dark:text-purple-400"
                                 )}>
                                     {goal.type}
                                 </span>
-                                <span className="text-xs text-slate-400 flex items-center gap-1">
+                                <span className="text-xs text-slate-400 dark:text-slate-500 flex items-center gap-1">
                                     <Calendar className="w-3 h-3" />
                                     {goal.deadline}
                                 </span>
                             </div>
-                            <span className="text-sm font-bold text-slate-900">{goal.progress}%</span>
+                            <span className="text-sm font-bold text-slate-900 dark:text-white">{goal.progress}%</span>
                         </div>
 
-                        <h4 className="font-bold text-slate-900 mb-4">{goal.title}</h4>
+                        <h4 className="font-bold text-slate-900 dark:text-white mb-4">{goal.title}</h4>
 
-                        <div className="w-full bg-slate-100 rounded-full h-2 mb-4">
+                        <div className="w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2 mb-4">
                             <div
                                 className="bg-yellow-500 h-2 rounded-full transition-all duration-500"
                                 style={{ width: `${goal.progress}%` }}
@@ -75,9 +75,9 @@ export function GoalTracker() {
                                     {task.completed ? (
                                         <CheckCircle2 className="w-4 h-4 text-green-500" />
                                     ) : (
-                                        <Circle className="w-4 h-4 text-slate-300" />
+                                        <Circle className="w-4 h-4 text-slate-300 dark:text-slate-600" />
                                     )}
-                                    <span className={task.completed ? "text-slate-400 line-through" : "text-slate-600"}>
+                                    <span className={task.completed ? "text-slate-400 dark:text-slate-500 line-through" : "text-slate-600 dark:text-slate-300"}>
                                         {task.title}
                                     </span>
                                 </div>

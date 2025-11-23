@@ -6,8 +6,8 @@ export function TimeManagementDashboard() {
     return (
         <div className="space-y-6">
             <div>
-                <h1 className="text-2xl md:text-3xl font-bold text-slate-900">Time Management</h1>
-                <p className="text-sm md:text-base text-slate-500 mt-1">Master your schedule and boost productivity.</p>
+                <h1 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Time Management</h1>
+                <p className="text-sm md:text-base text-slate-500 dark:text-slate-400 mt-1">Master your schedule and boost productivity.</p>
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">

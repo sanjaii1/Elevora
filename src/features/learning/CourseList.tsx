@@ -43,8 +43,8 @@ export function CourseList() {
     ];
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
-            <h3 className="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-orange-500" />
                 Active Learning
             </h3>
@@ -54,7 +54,7 @@ export function CourseList() {
                     <motion.div
                         key={course.id}
                         whileHover={{ y: -5 }}
-                        className="group relative bg-white rounded-xl border border-slate-200 overflow-hidden hover:shadow-md transition-all"
+                        className="group relative bg-white dark:bg-slate-700/50 rounded-xl border border-slate-200 dark:border-slate-600 overflow-hidden hover:shadow-md transition-all"
                     >
                         <div className={`h-32 ${course.image} relative`}>
                             <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors" />
@@ -66,20 +66,20 @@ export function CourseList() {
                         </div>
 
                         <div className="p-4">
-                            <h4 className="font-bold text-slate-900 mb-1">{course.title}</h4>
-                            <div className="flex items-center justify-between text-xs text-slate-500 mb-4">
+                            <h4 className="font-bold text-slate-900 dark:text-white mb-1">{course.title}</h4>
+                            <div className="flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 mb-4">
                                 <span>{course.completedLessons}/{course.totalLessons} lessons</span>
                                 <span>{course.progress}%</span>
                             </div>
 
-                            <div className="w-full bg-slate-100 rounded-full h-2 mb-4">
+                            <div className="w-full bg-slate-100 dark:bg-slate-600 rounded-full h-2 mb-4">
                                 <div
                                     className="bg-orange-500 h-2 rounded-full transition-all duration-500"
                                     style={{ width: `${course.progress}%` }}
                                 />
                             </div>
 
-                            <button className="w-full py-2 bg-slate-50 text-slate-700 rounded-lg text-sm font-medium hover:bg-slate-100 transition-colors flex items-center justify-center gap-2">
+                            <button className="w-full py-2 bg-slate-50 dark:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-500 transition-colors flex items-center justify-center gap-2">
                                 {course.progress === 100 ? (
                                     <>
                                         <CheckCircle2 className="w-4 h-4 text-green-500" />

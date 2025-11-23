@@ -35,38 +35,38 @@ export function TimeManagementWidget() {
     return (
         <motion.div
             whileHover={{ y: -5 }}
-            className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 relative overflow-hidden group"
+            className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 relative overflow-hidden group transition-colors"
         >
-            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
+            <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 dark:bg-indigo-500/10 rounded-full -mr-16 -mt-16 transition-transform group-hover:scale-110" />
 
             <div className="relative z-10">
                 <div className="flex items-center justify-between mb-4">
-                    <div className="p-2 bg-indigo-100 text-indigo-600 rounded-lg">
+                    <div className="p-2 bg-indigo-100 dark:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 rounded-lg">
                         <Clock className="w-5 h-5" />
                     </div>
-                    <span className="text-xs font-medium text-slate-400 uppercase tracking-wider">Focus</span>
+                    <span className="text-xs font-medium text-slate-400 dark:text-slate-500 uppercase tracking-wider">Focus</span>
                 </div>
 
                 <div className="text-center mb-6">
-                    <div className="text-4xl font-bold text-slate-900 font-mono tracking-wider">
+                    <div className="text-4xl font-bold text-slate-900 dark:text-white font-mono tracking-wider transition-colors">
                         {formatTime(timeLeft)}
                     </div>
-                    <p className="text-sm text-slate-500 mt-1">Pomodoro Timer</p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Pomodoro Timer</p>
                 </div>
 
                 <div className="flex items-center justify-center gap-3">
                     <button
                         onClick={toggleTimer}
                         className={`p-3 rounded-xl transition-colors ${isActive
-                                ? 'bg-amber-100 text-amber-600 hover:bg-amber-200'
-                                : 'bg-indigo-600 text-white hover:bg-indigo-700'
+                                ? 'bg-amber-100 dark:bg-amber-500/20 text-amber-600 dark:text-amber-400 hover:bg-amber-200 dark:hover:bg-amber-500/30'
+                                : 'bg-indigo-600 text-white hover:bg-indigo-700 shadow-lg shadow-indigo-500/30'
                             }`}
                     >
                         {isActive ? <Pause className="w-5 h-5" /> : <Play className="w-5 h-5" />}
                     </button>
                     <button
                         onClick={resetTimer}
-                        className="p-3 bg-slate-100 text-slate-600 rounded-xl hover:bg-slate-200 transition-colors"
+                        className="p-3 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-xl hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors"
                     >
                         <RotateCcw className="w-5 h-5" />
                     </button>

@@ -10,40 +10,40 @@ export function TimeBlockList() {
     ];
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 h-full transition-colors">
             <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <Calendar className="w-5 h-5 text-indigo-500" />
                     Daily Schedule
                 </h3>
-                <button className="p-2 hover:bg-slate-50 rounded-lg text-indigo-600 transition-colors">
+                <button className="p-2 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-lg text-indigo-600 dark:text-indigo-400 transition-colors">
                     <Plus className="w-5 h-5" />
                 </button>
             </div>
 
             <div className="space-y-4 relative">
                 {/* Timeline Line */}
-                <div className="absolute left-[4.5rem] top-4 bottom-4 w-px bg-slate-100" />
+                <div className="absolute left-[4.5rem] top-4 bottom-4 w-px bg-slate-100 dark:bg-slate-700" />
 
                 {blocks.map((block) => (
                     <div key={block.id} className="flex gap-4 group relative">
-                        <div className="w-16 pt-3 text-xs font-medium text-slate-400 text-right flex-shrink-0">
+                        <div className="w-16 pt-3 text-xs font-medium text-slate-400 dark:text-slate-500 text-right flex-shrink-0">
                             {block.time}
                         </div>
 
                         {/* Timeline Dot */}
-                        <div className="absolute left-[4.25rem] top-4 w-2.5 h-2.5 rounded-full bg-white border-2 border-indigo-200 z-10 group-hover:border-indigo-500 transition-colors" />
+                        <div className="absolute left-[4.25rem] top-4 w-2.5 h-2.5 rounded-full bg-white dark:bg-slate-800 border-2 border-indigo-200 dark:border-indigo-500/50 z-10 group-hover:border-indigo-500 transition-colors" />
 
-                        <div className={`flex-1 p-4 rounded-xl border ${block.color} transition-transform hover:scale-[1.01] cursor-pointer`}>
+                        <div className={`flex-1 p-4 rounded-xl border ${block.color.replace('bg-', 'dark:bg-opacity-10 dark:bg-').replace('text-', 'dark:text-').replace('border-', 'dark:border-opacity-20 dark:border-')} transition-transform hover:scale-[1.01] cursor-pointer`}>
                             <div className="flex justify-between items-start">
                                 <div>
-                                    <h4 className="font-bold text-sm md:text-base mb-1">{block.title}</h4>
-                                    <span className="text-xs opacity-80 font-medium uppercase tracking-wide">
+                                    <h4 className="font-bold text-sm md:text-base mb-1 text-slate-900 dark:text-white">{block.title}</h4>
+                                    <span className="text-xs opacity-80 font-medium uppercase tracking-wide text-slate-600 dark:text-slate-400">
                                         {block.duration} • {block.type}
                                     </span>
                                 </div>
-                                <button className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-black/5 rounded">
-                                    <MoreVertical className="w-4 h-4" />
+                                <button className="opacity-0 group-hover:opacity-100 transition-opacity p-1 hover:bg-black/5 dark:hover:bg-white/10 rounded">
+                                    <MoreVertical className="w-4 h-4 text-slate-500 dark:text-slate-400" />
                                 </button>
                             </div>
                         </div>
@@ -52,11 +52,11 @@ export function TimeBlockList() {
 
                 {/* Empty Slot Example */}
                 <div className="flex gap-4 group opacity-50 hover:opacity-100 transition-opacity">
-                    <div className="w-16 pt-3 text-xs font-medium text-slate-400 text-right flex-shrink-0">
+                    <div className="w-16 pt-3 text-xs font-medium text-slate-400 dark:text-slate-500 text-right flex-shrink-0">
                         03:30 PM
                     </div>
-                    <div className="flex-1 p-4 rounded-xl border border-dashed border-slate-300 bg-slate-50 flex items-center justify-center cursor-pointer hover:bg-slate-100 hover:border-indigo-300 transition-colors">
-                        <span className="text-sm text-slate-500 font-medium flex items-center gap-2">
+                    <div className="flex-1 p-4 rounded-xl border border-dashed border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800/50 flex items-center justify-center cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-700 hover:border-indigo-300 transition-colors">
+                        <span className="text-sm text-slate-500 dark:text-slate-400 font-medium flex items-center gap-2">
                             <Plus className="w-4 h-4" /> Add Block
                         </span>
                     </div>

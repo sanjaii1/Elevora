@@ -39,36 +39,36 @@ export function ContactList() {
     ];
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full">
-            <h3 className="text-lg font-bold text-slate-900 mb-6">All Contacts</h3>
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 h-full transition-colors">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-6">All Contacts</h3>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {contacts.map((contact) => (
                     <motion.div
                         key={contact.id}
                         layoutId={contact.id}
-                        className="border border-slate-200 rounded-xl p-4 hover:shadow-md transition-shadow group relative bg-white"
+                        className="border border-slate-200 dark:border-slate-700 rounded-xl p-4 hover:shadow-md transition-shadow group relative bg-white dark:bg-slate-700/30"
                     >
-                        <button className="absolute top-4 right-4 text-slate-300 hover:text-slate-500">
+                        <button className="absolute top-4 right-4 text-slate-300 dark:text-slate-500 hover:text-slate-500 dark:hover:text-slate-300">
                             <MoreHorizontal className="w-5 h-5" />
                         </button>
 
                         <div className="flex items-center gap-4 mb-4">
-                            <div className={`w-12 h-12 rounded-full ${contact.image} flex items-center justify-center text-slate-600 font-bold text-lg`}>
+                            <div className={`w-12 h-12 rounded-full ${contact.image} flex items-center justify-center text-slate-600 dark:text-slate-800 font-bold text-lg`}>
                                 {contact.name.charAt(0)}
                             </div>
                             <div>
-                                <h4 className="font-bold text-slate-900 flex items-center gap-2">
+                                <h4 className="font-bold text-slate-900 dark:text-white flex items-center gap-2">
                                     {contact.name}
                                     {contact.starred && <Star className="w-3 h-3 text-yellow-500 fill-yellow-500" />}
                                 </h4>
-                                <span className="text-xs font-medium bg-slate-100 text-slate-500 px-2 py-0.5 rounded-full">
+                                <span className="text-xs font-medium bg-slate-100 dark:bg-slate-600 text-slate-500 dark:text-slate-300 px-2 py-0.5 rounded-full">
                                     {contact.role}
                                 </span>
                             </div>
                         </div>
 
-                        <div className="space-y-2 text-sm text-slate-500">
+                        <div className="space-y-2 text-sm text-slate-500 dark:text-slate-400">
                             <div className="flex items-center gap-2">
                                 <Mail className="w-4 h-4" />
                                 <span className="truncate">{contact.email}</span>
@@ -79,15 +79,15 @@ export function ContactList() {
                             </div>
                             <div className="flex items-center gap-2">
                                 <Calendar className="w-4 h-4 text-pink-500" />
-                                <span className={contact.birthday === 'Tomorrow' ? 'text-pink-600 font-bold' : ''}>
+                                <span className={contact.birthday === 'Tomorrow' ? 'text-pink-600 dark:text-pink-400 font-bold' : ''}>
                                     {contact.birthday}
                                 </span>
                             </div>
                         </div>
 
-                        <div className="mt-4 pt-4 border-t border-slate-100 flex justify-between items-center text-xs text-slate-400">
+                        <div className="mt-4 pt-4 border-t border-slate-100 dark:border-slate-600 flex justify-between items-center text-xs text-slate-400 dark:text-slate-500">
                             <span>Last contacted: {contact.lastContact}</span>
-                            <button className="text-blue-600 hover:underline font-medium">Message</button>
+                            <button className="text-blue-600 dark:text-blue-400 hover:underline font-medium">Message</button>
                         </div>
                     </motion.div>
                 ))}

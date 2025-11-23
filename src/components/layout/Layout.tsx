@@ -8,7 +8,7 @@ export function Layout() {
     const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50">
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-purple-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 transition-colors duration-300">
             <Sidebar
                 isOpen={sidebarOpen}
                 onClose={() => setSidebarOpen(false)}

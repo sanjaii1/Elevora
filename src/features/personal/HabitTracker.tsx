@@ -25,13 +25,13 @@ export function HabitTracker() {
     };
 
     return (
-        <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-full">
+        <div className="bg-white dark:bg-slate-800 p-6 rounded-2xl shadow-sm border border-slate-100 dark:border-slate-700 h-full transition-colors">
             <div className="flex items-center justify-between mb-6">
-                <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                     <Calendar className="w-5 h-5 text-blue-500" />
                     Today's Habits
                 </h3>
-                <span className="text-sm text-slate-500">
+                <span className="text-sm text-slate-500 dark:text-slate-400">
                     {habits.filter(h => h.completed).length}/{habits.length} Completed
                 </span>
             </div>
@@ -45,25 +45,25 @@ export function HabitTracker() {
                         className={cn(
                             "flex items-center justify-between p-4 rounded-xl transition-all cursor-pointer group border",
                             habit.completed
-                                ? "bg-green-50 border-green-100"
-                                : "bg-slate-50 border-transparent hover:bg-white hover:border-blue-100 hover:shadow-sm"
+                                ? "bg-green-50 dark:bg-green-500/10 border-green-100 dark:border-green-500/30"
+                                : "bg-slate-50 dark:bg-slate-700/30 border-transparent hover:bg-white dark:hover:bg-slate-700 hover:border-blue-100 dark:hover:border-blue-500/30 hover:shadow-sm"
                         )}
                     >
                         <div className="flex items-center gap-4">
                             <div className={cn(
                                 "w-6 h-6 rounded-full flex items-center justify-center transition-colors",
-                                habit.completed ? "text-green-500" : "text-slate-300 group-hover:text-blue-400"
+                                habit.completed ? "text-green-500 dark:text-green-400" : "text-slate-300 dark:text-slate-500 group-hover:text-blue-400 dark:group-hover:text-blue-400"
                             )}>
                                 {habit.completed ? <CheckCircle2 className="w-6 h-6" /> : <Circle className="w-6 h-6" />}
                             </div>
                             <div>
                                 <p className={cn(
                                     "font-medium transition-colors",
-                                    habit.completed ? "text-slate-500 line-through" : "text-slate-900"
+                                    habit.completed ? "text-slate-500 dark:text-slate-500 line-through" : "text-slate-900 dark:text-white"
                                 )}>
                                     {habit.name}
                                 </p>
-                                <p className="text-xs text-slate-500">{habit.time}</p>
+                                <p className="text-xs text-slate-500 dark:text-slate-400">{habit.time}</p>
                             </div>
                         </div>
                     </motion.div>
