@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
     User, Briefcase, Wallet, GraduationCap,
     Zap, Plane, Server, Users, FolderKanban,
-    LayoutDashboard, CheckSquare, X, Heart, Menu
+    LayoutDashboard, CheckSquare, X, Heart, Menu, Clock
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,6 +10,7 @@ import { motion, AnimatePresence } from "framer-motion";
 const navItems = [
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
     { name: "To-Do", path: "/todo", icon: CheckSquare },
+    { name: "Time", path: "/time", icon: Clock },
     { name: "Personal", path: "/personal", icon: User },
     { name: "Health", path: "/health", icon: Heart },
     { name: "Career", path: "/career", icon: Briefcase },

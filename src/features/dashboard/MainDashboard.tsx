@@ -10,6 +10,7 @@ import { SocialWidget } from "../../components/widgets/SocialWidget";
 import { BusinessWidget } from "../../components/widgets/BusinessWidget";
 import { TodoWidget } from "../../components/widgets/TodoWidget";
 import { HealthWidget } from "../../components/widgets/HealthWidget";
+import { TimeManagementWidget } from "../../components/widgets/TimeManagementWidget";
 
 export function MainDashboard() {
     const container = {
@@ -41,6 +42,7 @@ export function MainDashboard() {
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
                 <motion.div variants={item}><TodoWidget /></motion.div>
+                <motion.div variants={item}><TimeManagementWidget /></motion.div>
                 <motion.div variants={item}><HealthWidget /></motion.div>
                 <motion.div variants={item}><PersonalWidget /></motion.div>
                 <motion.div variants={item}><CareerWidget /></motion.div>
