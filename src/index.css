@@ -3,3 +3,15 @@
 @theme {
     --animate-spin-slow: spin 3s linear infinite;
 }
+
+/* Custom Utilities */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
