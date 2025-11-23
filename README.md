@@ -1,73 +1,134 @@
-# React + TypeScript + Vite
+Elevora – Personal Life Management OS
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Elevora is an all-in-one personal operating system designed to help you organize, track, and improve every area of your life. It brings your goals, habits, finances, skills, career, projects, and daily routines into one clean and powerful dashboard.
 
-Currently, two official plugins are available:
+Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Elevora centralizes everything you manage in your personal and professional life. It gives you structure, visibility, and control through a modular system that covers productivity, finance, learning, wellness, career, and more.
+The goal is simple: build a single system that helps you grow, stay organized, and make better decisions.
 
-## React Compiler
+Core Features
+1. Core Personal
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Profile dashboard
 
-## Expanding the ESLint configuration
+Daily routine and habit tracking
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Mood and energy logging
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Health tracking (exercise, sleep, hydration)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+2. Career
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Project and task management
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Work timeline
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Skill development roadmap
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Certifications and learning progress
+
+Portfolio builder
+
+Job application and interview tracker
+
+3. Finance
+
+Income and expense tracking
+
+Monthly budgeting
+
+Savings goals
+
+Debt tracking
+
+Subscription management
+
+Investment tracking
+
+4. Learning and Skills
+
+Learning goals
+
+Courses in progress
+
+Reading log
+
+Practice tracking
+
+Mock interview/test tracking
+
+5. Personal Development
+
+Short-term and long-term goals
+
+Journaling
+
+Productivity analytics
+
+Time tracking
+
+Reflection notes
+
+6. Lifestyle
+
+Travel planner
+
+Fitness plan
+
+Diet and meal logs
+
+Events and memories
+
+Wishlist and shopping list
+
+7. Systems & Assets
+
+Device management
+
+Password vault links (no passwords stored)
+
+Document storage
+
+Asset inventory (gadgets, accounts, subscriptions)
+
+8. Social
+
+Contact manager
+
+Birthday reminders
+
+Networking tracker
+
+Helped/Received log
+
+9. Projects & Business
+
+Business ideas organizer
+
+Freelance client tracker
+
+Invoice management
+
+Project deadlines
+
+Marketing and activities log
+
+Tech Stack (Planned)
+
+Frontend: React / Next.js
+
+Backend: Node.js / Express or NestJS
+
+Database: MongoDB / PostgreSQL
+
+Authentication: JWT or OAuth
+
+UI: Tailwind / Material UI / Custom components
+
+Deployment: Vercel / Render / AWS
+
+Vision
+
+To build a premium, unified life-management platform that acts as your personal command center.
+A system that helps you elevate your productivity, clarity, and growth — all under one name: Elevora.
