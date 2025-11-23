@@ -2,13 +2,14 @@ import { Link, useLocation } from "react-router-dom";
 import {
     User, Briefcase, Wallet, GraduationCap,
     Zap, Plane, Server, Users, FolderKanban,
-    LayoutDashboard
+    LayoutDashboard, CheckSquare
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { motion } from "framer-motion";
 
 const navItems = [
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
+    { name: "To-Do", path: "/todo", icon: CheckSquare },
     { name: "Personal", path: "/personal", icon: User },
     { name: "Career", path: "/career", icon: Briefcase },
     { name: "Finance", path: "/finance", icon: Wallet },

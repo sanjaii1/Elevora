@@ -11,6 +11,7 @@ import { SystemsDashboard } from "./features/systems/SystemsDashboard";
 import { SocialDashboard } from "./features/social/SocialDashboard";
 import { BusinessDashboard } from "./features/business/BusinessDashboard";
 import { MainDashboard } from "./features/dashboard/MainDashboard";
+import { TodoDashboard } from "./features/todo/TodoDashboard";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<MainDashboard />} />
+          <Route path="/todo" element={<TodoDashboard />} />
           <Route path="/personal" element={<PersonalDashboard />} />
           <Route path="/career" element={<CareerDashboard />} />
           <Route path="/finance" element={<FinanceDashboard />} />

@@ -8,6 +8,7 @@ import { LifestyleWidget } from "../../components/widgets/LifestyleWidget";
 import { SystemsWidget } from "../../components/widgets/SystemsWidget";
 import { SocialWidget } from "../../components/widgets/SocialWidget";
 import { BusinessWidget } from "../../components/widgets/BusinessWidget";
+import { TodoWidget } from "../../components/widgets/TodoWidget";
 
 export function MainDashboard() {
     const container = {
@@ -38,6 +39,7 @@ export function MainDashboard() {
                 animate="show"
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
+                <motion.div variants={item}><TodoWidget /></motion.div>
                 <motion.div variants={item}><PersonalWidget /></motion.div>
                 <motion.div variants={item}><CareerWidget /></motion.div>
                 <motion.div variants={item}><FinanceWidget /></motion.div>
