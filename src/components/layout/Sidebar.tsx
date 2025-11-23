@@ -2,15 +2,16 @@ import { Link, useLocation } from "react-router-dom";
 import {
     User, Briefcase, Wallet, GraduationCap,
     Zap, Plane, Server, Users, FolderKanban,
-    LayoutDashboard, CheckSquare
+    LayoutDashboard, CheckSquare, X, Heart
 } from "lucide-react";
 import { cn } from "../../utils/cn";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navItems = [
     { name: "Dashboard", path: "/", icon: LayoutDashboard },
     { name: "To-Do", path: "/todo", icon: CheckSquare },
     { name: "Personal", path: "/personal", icon: User },
+    { name: "Health", path: "/health", icon: Heart },
     { name: "Career", path: "/career", icon: Briefcase },
     { name: "Finance", path: "/finance", icon: Wallet },
     { name: "Learning", path: "/learning", icon: GraduationCap },
@@ -21,62 +22,96 @@ const navItems = [
     { name: "Business", path: "/business", icon: FolderKanban },
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+    isOpen: boolean;
+    onClose: () => void;
+}
+
+export function Sidebar({ isOpen, onClose }: SidebarProps) {
     const location = useLocation();
 
     return (
-        <aside className="w-64 h-screen bg-white/50 backdrop-blur-xl border-r border-white/20 flex flex-col fixed left-0 top-0 z-50">
-            <div className="p-6 flex items-center gap-2">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
-                    EL
-                </div>
-                <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                    Elevora
-                </span>
-            </div>
+        <>
+            {/* Mobile Overlay */}
+            <AnimatePresence>
+                {isOpen && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        onClick={onClose}
+                        className="fixed inset-0 bg-black/50 z-40 lg:hidden"
+                    />
+                )}
+            </AnimatePresence>
 
-            <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
-                {navItems.map((item) => {
-                    const isActive = location.pathname === item.path;
-                    const Icon = item.icon;
-
-                    return (
-                        <Link
-                            key={item.path}
-                            to={item.path}
-                            className={cn(
-                                "relative flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-200 group",
-                                isActive
-                                    ? "text-blue-600 font-medium"
-                                    : "text-slate-500 hover:text-slate-900"
-                            )}
-                        >
-                            {isActive && (
-                                <motion.div
-                                    layoutId="activeNav"
-                                    className="absolute inset-0 bg-blue-50 rounded-xl"
-                                    initial={false}
-                                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                                />
-                            )}
-                            <Icon className="w-5 h-5 relative z-10" />
-                            <span className="relative z-10">{item.name}</span>
-                        </Link>
-                    );
-                })}
-            </nav>
-
-            <div className="p-4 border-t border-slate-100">
-                <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-slate-50">
-                    <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center">
-                        <User className="w-4 h-4 text-slate-500" />
+            {/* Sidebar */}
+            <aside className={cn(
+                "w-64 h-screen bg-white/50 backdrop-blur-xl border-r border-white/20 flex flex-col fixed left-0 top-0 z-50 transition-transform duration-300",
+                "lg:translate-x-0",
+                isOpen ? "translate-x-0" : "-translate-x-full"
+            )}>
+                <div className="p-4 md:p-6 flex items-center justify-between">
+                    <div className="flex items-center gap-2">
+                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            EL
+                        </div>
+                        <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                            Elevora
+                        </span>
                     </div>
-                    <div className="flex-1 min-w-0">
-                        <p className="text-sm font-medium text-slate-900 truncate">User Name</p>
-                        <p className="text-xs text-slate-500 truncate">Pro Plan</p>
+                    <button
+                        onClick={onClose}
+                        className="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition-colors"
+                    >
+                        <X className="w-5 h-5 text-slate-500" />
+                    </button>
+                </div>
+
+                <nav className="flex-1 px-3 md:px-4 py-4 space-y-1 overflow-y-auto">
+                    {navItems.map((item) => {
+                        const isActive = location.pathname === item.path;
+                        const Icon = item.icon;
+
+                        return (
+                            <Link
+                                key={item.path}
+                                to={item.path}
+                                onClick={onClose}
+                                className={cn(
+                                    "relative flex items-center gap-3 px-3 md:px-4 py-3 rounded-xl transition-all duration-200 group",
+                                    isActive
+                                        ? "text-blue-600 font-medium"
+                                        : "text-slate-500 hover:text-slate-900"
+                                )}
+                            >
+                                {isActive && (
+                                    <motion.div
+                                        layoutId="activeNav"
+                                        className="absolute inset-0 bg-blue-50 rounded-xl"
+                                        initial={false}
+                                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                                    />
+                                )}
+                                <Icon className="w-5 h-5 relative z-10 flex-shrink-0" />
+                                <span className="relative z-10 text-sm md:text-base">{item.name}</span>
+                            </Link>
+                        );
+                    })}
+                </nav>
+
+                <div className="p-3 md:p-4 border-t border-slate-100">
+                    <div className="flex items-center gap-3 px-3 md:px-4 py-3 rounded-xl bg-slate-50">
+                        <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0">
+                            <User className="w-4 h-4 text-slate-500" />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <p className="text-sm font-medium text-slate-900 truncate">User Name</p>
+                            <p className="text-xs text-slate-500 truncate">Pro Plan</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </aside>
+            </aside>
+        </>
     );
 }
