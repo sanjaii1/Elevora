@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import {
     User, Briefcase, Wallet, GraduationCap,
     Zap, Plane, Server, Users, FolderKanban,
-    LayoutDashboard, CheckSquare, X, Heart
+    LayoutDashboard, CheckSquare, X, Heart, Menu
 } from "lucide-react";
 import { cn } from "../../utils/cn";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,9 +25,11 @@ const navItems = [
 interface SidebarProps {
     isOpen: boolean;
     onClose: () => void;
+    isCollapsed: boolean;
+    onToggleCollapse: () => void;
 }
 
-export function Sidebar({ isOpen, onClose }: SidebarProps) {
+export function Sidebar({ isOpen, onClose, isCollapsed, onToggleCollapse }: SidebarProps) {
     const location = useLocation();
 
     return (
@@ -47,12 +49,19 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
 
             {/* Sidebar */}
             <aside className={cn(
-                "w-64 h-screen bg-white/50 backdrop-blur-xl border-r border-white/20 flex flex-col fixed left-0 top-0 z-50 transition-transform duration-300",
+                "h-screen bg-white/50 backdrop-blur-xl border-r border-white/20 flex flex-col fixed left-0 top-0 z-50 transition-all duration-300",
                 "lg:translate-x-0",
-                isOpen ? "translate-x-0" : "-translate-x-full"
+                isOpen ? "translate-x-0" : "-translate-x-full",
+                isCollapsed ? "lg:w-20" : "w-64"
             )}>
-                <div className="p-4 md:p-6 flex items-center justify-between">
-                    <div className="flex items-center gap-2">
+                <div className={cn(
+                    "p-4 md:p-6 flex items-center",
+                    isCollapsed ? "lg:justify-center lg:p-4" : "justify-between"
+                )}>
+                    <div className={cn(
+                        "flex items-center gap-2",
+                        isCollapsed && "lg:hidden"
+                    )}>
                         <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
                             EL
                         </div>
@@ -60,6 +69,26 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                             Elevora
                         </span>
                     </div>
+
+                    {/* Collapsed Logo */}
+                    <div className={cn(
+                        "hidden",
+                        isCollapsed && "lg:block"
+                    )}>
+                        <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
+                            EL
+                        </div>
+                    </div>
+
+                    {/* Desktop Collapse Button */}
+                    <button
+                        onClick={onToggleCollapse}
+                        className="hidden lg:block p-2 hover:bg-slate-100 rounded-lg transition-colors"
+                    >
+                        <Menu className="w-5 h-5 text-slate-500" />
+                    </button>
+
+                    {/* Mobile Close Button */}
                     <button
                         onClick={onClose}
                         className="lg:hidden p-2 hover:bg-slate-100 rounded-lg transition-colors"
@@ -79,11 +108,13 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                                 to={item.path}
                                 onClick={onClose}
                                 className={cn(
-                                    "relative flex items-center gap-3 px-3 md:px-4 py-3 rounded-xl transition-all duration-200 group",
+                                    "relative flex items-center gap-3 rounded-xl transition-all duration-200 group",
+                                    isCollapsed ? "lg:justify-center lg:px-3 lg:py-3" : "px-3 md:px-4 py-3",
                                     isActive
                                         ? "text-blue-600 font-medium"
                                         : "text-slate-500 hover:text-slate-900"
                                 )}
+                                title={isCollapsed ? item.name : undefined}
                             >
                                 {isActive && (
                                     <motion.div
@@ -94,18 +125,32 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
                                     />
                                 )}
                                 <Icon className="w-5 h-5 relative z-10 flex-shrink-0" />
-                                <span className="relative z-10 text-sm md:text-base">{item.name}</span>
+                                <span className={cn(
+                                    "relative z-10 text-sm md:text-base",
+                                    isCollapsed && "lg:hidden"
+                                )}>
+                                    {item.name}
+                                </span>
                             </Link>
                         );
                     })}
                 </nav>
 
-                <div className="p-3 md:p-4 border-t border-slate-100">
-                    <div className="flex items-center gap-3 px-3 md:px-4 py-3 rounded-xl bg-slate-50">
+                <div className={cn(
+                    "p-3 md:p-4 border-t border-slate-100",
+                    isCollapsed && "lg:px-2"
+                )}>
+                    <div className={cn(
+                        "flex items-center gap-3 px-3 md:px-4 py-3 rounded-xl bg-slate-50",
+                        isCollapsed && "lg:justify-center lg:px-2"
+                    )}>
                         <div className="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center flex-shrink-0">
                             <User className="w-4 h-4 text-slate-500" />
                         </div>
-                        <div className="flex-1 min-w-0">
+                        <div className={cn(
+                            "flex-1 min-w-0",
+                            isCollapsed && "lg:hidden"
+                        )}>
                             <p className="text-sm font-medium text-slate-900 truncate">User Name</p>
                             <p className="text-xs text-slate-500 truncate">Pro Plan</p>
                         </div>
